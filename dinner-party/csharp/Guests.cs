@@ -13,7 +13,21 @@ namespace csharp
         {
             this.Guests.Add(guest);
         }
-        public
+
+        public GuestList(string name)
+        {
+            _name = name;
+        }
+
+        public PrintGuestList()
+        {
+            Console.WriteLine($"{name}");
+            Console.WriteLine("---------------");
+            foreach (Guest guest in this.Guests)
+            {
+                guest.PrintGuest();
+            }
+        }
 
     }
 }
