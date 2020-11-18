@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace csharp
 {
@@ -36,9 +38,36 @@ namespace csharp
     preserve and cherish the pale blue dot, the only home we've ever known.
         - Carl Sagan";
 
-            List<string> Words = new List<string>(Text.Split(" "))
+            List<string> Words = new List<string>(Text.Split(" "));
+            List<Word> WordFreq = new List<Word>();
+            foreach (string word in Words)
+            {
+                bool exists = false;
+                string NewWord = Regex.Replace(word, @"[^\w\s]", "");
 
+                foreach (Word wordInFreq in WordFreq)
+                {
+                    if (wordInFreq.Name == NewWord)
+                    {
+                        exists = true;
+                    }
+                }
+                if (exists)
+                {
+                    //stuck here gotta figure out how to change a prop of an object in a list
+                    WordFreq.Find(NewWord).Number++;
+                }
+                else
+                {
+                    WordFreq.Add(new Word(NewWord));
+                }
+            }
 
-
+            foreach (Word word in WordFreq)
+            {
+                Console.WriteLine(word);
+            }
+        }
     }
+}
 
