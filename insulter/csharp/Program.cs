@@ -23,7 +23,7 @@ namespace csharp
             while (indexes.Count < 3)
             {
                 int candidate = new Random().Next(0, insults.Count - 1);
-                if (!indexes.(candidate))
+                if (!indexes.Contains(candidate))
                 {
                     indexes.Add(candidate);
                 }
