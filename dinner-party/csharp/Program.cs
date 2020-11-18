@@ -24,9 +24,28 @@ namespace csharp
             foreach (Guest guest in AllGuests)
             {
                 List<string> TableOneOccupations = new List();
+
                 foreach (Guest guest in TableOne)
+                {
+                    TableOneOccupations.add(guest.Occupation);
+                }
+                foreach (Guest guest in AllGuests)
+                {
+                    if (TableOneOccupations.includes(guest.Occupation))
+                    {
+                        TableTwo.AddAGuest(guest);
+                    }
+                    else
+                    {
+                        TableOne.AddAGuest(guest);
+                    }
+                }
 
             }
+
+            TableOne.PrintGuestList();
+            TableTwo.PrintGuestList();
+
 
         }
     }

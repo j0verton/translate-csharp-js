@@ -7,13 +7,13 @@ namespace csharp
     public class Guest
     {
         private string _name;
-        private string _occupation;
+        public string Occupation { get; set; }
         private string _bio;
 
         public Guest(string name, string occupation, string bio)
         {
             _name = name;
-            _occupation = occupation;
+            Occupation = occupation;
             _bio = bio;
 
         }
