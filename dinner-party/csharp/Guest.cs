@@ -20,7 +20,7 @@ namespace csharp
 
         public void PrintGuest()
         {
-            Console.WriteLine($"{this._name} ({this._occupation}) {this._bio}");
+            Console.WriteLine($"{this._name} ({this.Occupation}) {this._bio}");
         }
     }
 }

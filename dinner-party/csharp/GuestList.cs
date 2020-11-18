@@ -11,7 +11,7 @@ namespace csharp
 
         public void AddAGuest(Guest guest)
         {
-            this.Guests.Add(guest);
+            Guests.Add(guest);
         }
 
         public GuestList(string name)
@@ -19,11 +19,11 @@ namespace csharp
             _name = name;
         }
 
-        public PrintGuestList()
+        public void PrintGuestList()
         {
-            Console.WriteLine($"{name}");
+            Console.WriteLine($"{_name}");
             Console.WriteLine("---------------");
-            foreach (Guest guest in this.Guests)
+            foreach (Guest guest in Guests)
             {
                 guest.PrintGuest();
             }
