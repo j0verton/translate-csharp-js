@@ -52,7 +52,8 @@ namespace csharp
                     WordFreq.Add(NewWord, 1);
                 }
             }
-            WordFreq.
+            List<KeyValuePair<string, int>> wordCount = WordFreq.ToList();
+            List<KeyValuePair<string, int>> sortedWordCount = wordCount.OrderBy(n => n.value)
             foreach (KeyValuePair<string, int> entry in WordFreq)
             {
                 Console.WriteLine(entry);
