@@ -52,8 +52,11 @@ namespace csharp
                     WordFreq.Add(NewWord, 1);
                 }
             }
-
-            Console.Write(WordFreq.ToString());
+            WordFreq.
+            foreach (KeyValuePair<string, int> entry in WordFreq)
+            {
+                Console.WriteLine(entry);
+            }
 
         }
     }
