@@ -39,34 +39,22 @@ namespace csharp
         - Carl Sagan";
 
             List<string> Words = new List<string>(Text.Split(" "));
-            List<Word> WordFreq = new List<Word>();
+            Dictionary<string, int> WordFreq = new Dictionary<string, int>();
             foreach (string word in Words)
             {
-                bool exists = false;
                 string NewWord = Regex.Replace(word, @"[^\w\s]", "");
-
-                foreach (Word wordInFreq in WordFreq)
+                if (WordFreq.ContainsKey(NewWord))
                 {
-                    if (wordInFreq.Name == NewWord)
-                    {
-                        exists = true;
-                    }
-                }
-                if (exists)
-                {
-                    //stuck here gotta figure out how to change a prop of an object in a list
-                    WordFreq.Find(NewWord).Number++;
+                    WordFreq[NewWord]++;
                 }
                 else
                 {
-                    WordFreq.Add(new Word(NewWord));
+                    WordFreq.Add(NewWord, 1);
                 }
             }
 
-            foreach (Word word in WordFreq)
-            {
-                Console.WriteLine(word);
-            }
+            Console.Write(WordFreq.ToString());
+
         }
     }
 }
